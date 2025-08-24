@@ -1,0 +1,40 @@
+package com.tanmay.taskmanager.controller;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/profile")
+@CrossOrigin(origins = "http://localhost:5173") // frontend URL
+public class ProfileController {
+
+    @Autowired
+    private ProfileService profileService;
+
+    @PostMapping("/upload")
+    public Profile uploadProfile(
+            @RequestParam("fullName") String fullName,
+            @RequestParam("email") String email,
+            @RequestParam("bio") String bio,
+            @RequestParam("photo") MultipartFile file
+    ) throws IOException {
+
+        // Save file locally (for demo, in production use cloud storage like AWS S3)
+        String filePath = "uploads/" + file.getOriginalFilename();
+        file.transferTo(new File(filePath));
+
+        Profile profile = new Profile();
+        profile.setFullName(fullName);
+        profile.setEmail(email);
+        profile.setBio(bio);
+        profile.setPhotoUrl(filePath);
+
+        return profileService.saveProfile(profile);
+    }
+
+    @GetMapping("/{userId}")
+    public Profile getProfile(@PathVariable Long userId) {
+        return profileService.getProfileByUserId(userId);
+    }
+}

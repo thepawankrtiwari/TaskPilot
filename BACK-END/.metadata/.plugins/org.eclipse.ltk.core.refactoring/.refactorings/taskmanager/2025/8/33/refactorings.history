@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.tanmay.taskmanager.repository.repository.java&apos; to &apos;ProfileRepository.java&apos;&#x0D;&#x0A;- Original project: &apos;taskmanager&apos;&#x0D;&#x0A;- Original element: &apos;com.tanmay.taskmanager.repository.repository.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.tanmay.taskmanager.repository.ProfileRepository.java&apos;" description="Rename compilation unit &apos;repository.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tanmay.taskmanager.repository{repository.java" name="ProfileRepository.java" references="false" stamp="1755175888889" version="1.0"/>
+</session>
